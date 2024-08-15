@@ -81,13 +81,15 @@ CREATE TABLE LATE_FEE_RULE (
 );
 DESC LATE_FEE_RULE;
 
-INSERT INTO LANGUAGE (Language_Id, Name) VALUES
-(1, 'English'),
-(2, 'Spanish');
+INSERT INTO LANGUAGE (Language_Id, Name) VALUES (1, 'English');
 
-INSERT INTO PUBLISHER (Publisher_Id, Name, Address) VALUES
-(1, 'O\'Reilly Media', '1005 Gravenstein Highway North, Sebastopol, CA'),
-(2, 'Penguin Random House', '1745 Broadway, New York, NY');
+INSERT INTO LANGUAGE (Language_Id, Name) VALUES (2, 'Spanish');
+
+INSERT INTO PUBLISHER (Publisher_Id, Name, Address) 
+VALUES (1, 'O''Reilly Media', '1005 Gravenstein Highway North, Sebastopol, CA');
+
+INSERT INTO PUBLISHER (Publisher_Id, Name, Address) 
+VALUES (2, 'Penguin Random House', '1745 Broadway, New York, NY');
 
 INSERT INTO BOOK (Book_Id, Title, Language_Id, MRP, Publisher_Id, Published_Date, Volume, Status) VALUES
 (1, 'Learning SQL', 1, 50.00, 1, '2021-01-01', 1, 'Available'),
