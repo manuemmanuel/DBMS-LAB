@@ -77,3 +77,45 @@ CREATE TABLE LATE_FEE_RULE (
     Amount DECIMAL(10, 2),
     PRIMARY KEY (FromDays, ToDays)
 );
+
+INSERT INTO LANGUAGE (Language_Id, Name) VALUES
+(1, 'English'),
+(2, 'Spanish');
+
+INSERT INTO PUBLISHER (Publisher_Id, Name, Address) VALUES
+(1, 'O\'Reilly Media', '1005 Gravenstein Highway North, Sebastopol, CA'),
+(2, 'Penguin Random House', '1745 Broadway, New York, NY');
+
+INSERT INTO BOOK (Book_Id, Title, Language_Id, MRP, Publisher_Id, Published_Date, Volume, Status) VALUES
+(1, 'Learning SQL', 1, 50.00, 1, '2021-01-01', 1, 'Available'),
+(2, 'Effective Java', 1, 45.00, 2, '2020-06-15', 1, 'Available');
+
+INSERT INTO AUTHOR (Author_Id, Name, Email, Phone_Number, Status) VALUES
+(1, 'Alan Beaulieu', 'alan@example.com', '1234567890', 'Active'),
+(2, 'Joshua Bloch', 'joshua@example.com', '0987654321', 'Active');
+
+INSERT INTO BOOK_AUTHOR (Book_Id, Author_Id) VALUES
+(1, 1),
+(2, 2);
+
+INSERT INTO MEMBER (Member_Id, Name, Branch_Code, Roll_Number, Phone_Number, Email_Id, Date_of_Join, Status) VALUES
+(1, 'John Doe', 'CS', '123', '555-5555', 'john@example.com', '2023-01-10', 'Active');
+
+INSERT INTO BOOK_ISSUE (Issue_Id, Date_Of_Issue, Book_Id, Member_Id, Expected_Date_Of_Return, Status) VALUES
+(1, '2023-02-01', 1, 1, '2023-02-15', 'Issued');
+
+INSERT INTO BOOK_RETURN (Issue_Id, Actual_Date_Of_Return, LateDays, LateFee) VALUES
+(1, '2023-02-18', 3, 30.00);
+
+INSERT INTO LATE_FEE_RULE (FromDays, ToDays, Amount) VALUES
+(0, 7, 10.00),
+(8, 30, 100.00),
+(31, NULL, 10.00);
+
+ALTER TABLE BOOK ADD COLUMN ISBN VARCHAR(20);
+ALTER TABLE MEMBER MODIFY Phone_Number VARCHAR(30);
+ALTER TABLE BOOK DISABLE CONSTRAINT BOOK_PUBLISHER_FK;
+TRUNCATE TABLE PUBLISHER;
+ALTER TABLE BOOK ENABLE CONSTRAINT BOOK_PUBLISHER_FK;
+DROP TABLE AUTHOR;
+ALTER TABLE LATE_FEE_RULE RENAME TO FINE;
