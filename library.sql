@@ -1,6 +1,3 @@
-CREATE DATABASE Library;
-USE Library;
-
 CREATE TABLE LANGUAGE (
     Language_Id INT PRIMARY KEY,
     Name VARCHAR(50) NOT NULL
