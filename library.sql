@@ -30,6 +30,7 @@ CREATE TABLE AUTHOR (
     Phone_Number VARCHAR(20),
     Status VARCHAR(50)
 );
+DESC AUTHOR;
 
 CREATE TABLE BOOK_AUTHOR (
     Book_Id INT,
